@@ -6,3 +6,4 @@
 * Instalar Vuetify
 * Crear una estructura con Card
 * Hacer que el buscador funcione
+* Agregar Tag a GitHub
