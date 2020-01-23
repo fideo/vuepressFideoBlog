@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Reaction Commerce en tu servidor | Federico Mazzei</title>
+    <meta name="description" content="Utilizar el e-Commerce de ReactionCommerce en tu propio servidor">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.2a8c83af.css" as="style"><link rel="preload" href="/assets/js/app.67248da3.js" as="script"><link rel="preload" href="/assets/js/2.2b709ab5.js" as="script"><link rel="preload" href="/assets/js/14.670ade45.js" as="script"><link rel="prefetch" href="/assets/js/10.5925baf1.js"><link rel="prefetch" href="/assets/js/11.d65a42e3.js"><link rel="prefetch" href="/assets/js/12.47c5d104.js"><link rel="prefetch" href="/assets/js/13.21bb245b.js"><link rel="prefetch" href="/assets/js/15.c15d3210.js"><link rel="prefetch" href="/assets/js/16.4a302176.js"><link rel="prefetch" href="/assets/js/17.9a84345e.js"><link rel="prefetch" href="/assets/js/18.36e0f522.js"><link rel="prefetch" href="/assets/js/19.433cfcd7.js"><link rel="prefetch" href="/assets/js/20.b954a8f7.js"><link rel="prefetch" href="/assets/js/21.3c11d15e.js"><link rel="prefetch" href="/assets/js/22.c126b099.js"><link rel="prefetch" href="/assets/js/23.7400858a.js"><link rel="prefetch" href="/assets/js/3.39f7530e.js"><link rel="prefetch" href="/assets/js/4.99002831.js"><link rel="prefetch" href="/assets/js/5.873eb812.js"><link rel="prefetch" href="/assets/js/6.feef5deb.js"><link rel="prefetch" href="/assets/js/7.fa8bf20f.js"><link rel="prefetch" href="/assets/js/8.bd5d2ada.js"><link rel="prefetch" href="/assets/js/9.1f1a2a2b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2a8c83af.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Federico Mazzei</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/interviews/" class="nav-link">Interviews</a></div><div class="nav-item"><a href="/posts/" class="nav-link router-link-active">Posts</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/interviews/" class="nav-link">Interviews</a></div><div class="nav-item"><a href="/posts/" class="nav-link router-link-active">Posts</a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="reaction-commerce-usando-propio-servidor"><a href="#reaction-commerce-usando-propio-servidor" aria-hidden="true" class="header-anchor">#</a> Reaction Commerce usando propio servidor</h1> <p>Les comparto este video que le prometí a <a href="https://alexanderditzend.com/" target="_blank">Alexander Ditzend</a>, el cual muestra como subo al servidor de hosting (en mi caso por el momento DonWeb) la plataforma de Reaction Commerce.</p> <iframe width="100%" height="400" src="https://www.youtube.com/embed/du7gkeJniu8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe> <h2 id="estos-son-los-dos-comandos-que-utilice-en-el-video"><a href="#estos-son-los-dos-comandos-que-utilice-en-el-video" aria-hidden="true" class="header-anchor">#</a> Estos son los dos comandos que utilicé en el video.</h2> <h4 id="deployreaction-sh"><a href="#deployreaction-sh" aria-hidden="true" class="header-anchor">#</a> deployreaction.sh</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token shebang important">#!/bin/sh</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;Generando el deploy de Reaction&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;meteor build --server-only ../new_package/ &amp;&amp; mv ../new_package/*.tar.gz ./reaction.tar.gz&quot;</span>
+<span class="token assign-left variable">fecha</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%d-%m-%Y<span class="token variable">)</span></span>
+<span class="token assign-left variable">fechahora</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%Y%m%d%H%M%S<span class="token variable">)</span></span>
+meteor build --server-only <span class="token punctuation">..</span>/new_package/ <span class="token operator">&amp;&amp;</span> <span class="token function">mv</span> <span class="token punctuation">..</span>/new_package/*.tar.gz ./reaction_<span class="token variable">$fechahora</span>.tar.gz
+</code></pre></div><hr> <p> </p> <p>
+Lo que hago es simplemente ejecutar el comando
+[**meteor build**](https://guide.meteor.com/deployment.html#custom-deployment) pero con el agregado de que cuando termine, mueva el .tar.gz que genera en ../new_package/ a mi directorio de proyecto insertandole la fecha de deploy al nombre del archivo .tzr.gz Esto es para tener un versionado de los deploys.</p> <p>Luego subo el .tar.gz generado al servidor ya sea por ftp, scp o algún otro método disponible para subirlo.
+Una vez arriba el archivo ejecuto el segundo comando (deployUpdate.sh) que se encuentra en el mismo directorio que el .tar.gz </p> <h4 id="deployupdate-sh"><a href="#deployupdate-sh" aria-hidden="true" class="header-anchor">#</a> deployUpdate.sh</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token shebang important">#!/bin/bash</span>
+<span class="token function">clear</span>
+
+<span class="token assign-left variable">proyecto</span><span class="token operator">=</span><span class="token string">'reaction'</span>
+<span class="token assign-left variable">usuario</span><span class="token operator">=</span><span class="token string">'fideo'</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;Realizando el update del deploy de &quot;</span> <span class="token variable">$proyecto</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;Descomprimo el archivo .tar.gz dejado en este mismo directorio&quot;</span>
+<span class="token function">tar</span> vxzf *.tar.gz
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;entrando al directorio /home/<span class="token variable">$usuario</span>/proyectos/<span class="token variable">$proyecto</span>/tmp/bundle/programs/server&quot;</span>
+<span class="token builtin class-name">cd</span> /home/<span class="token variable">$usuario</span>/proyectos/<span class="token variable">$proyecto</span>/tmp/bundle/programs/server
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;npm install --production&quot;</span>
+<span class="token function">npm</span> <span class="token function">install</span> --production
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;npm prune --production&quot;</span>
+<span class="token function">npm</span> prune --production <span class="token assign-left variable">directorio</span><span class="token operator">=</span><span class="token string">&quot;/home/<span class="token variable">$usuario</span>/proyectos/<span class="token variable">$proyecto</span>/bundle.old&quot;</span>
+
+<span class="token comment"># Controlo que exista el $DIRECTORY .</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -d <span class="token string">&quot;<span class="token variable">$directorio</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">then</span> <span class="token function">rm</span> -Rf /home/<span class="token variable">$usuario</span>/proyectos/<span class="token variable">$proyecto</span>/bundle.old
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;cambio de nombre el bundle actual por bundle.old&quot;</span>
+<span class="token function">mv</span> /home/<span class="token variable">$usuario</span>/proyectos/<span class="token variable">$proyecto</span>/bundle /home/fideo/proyectos/reaction/bundle.old
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;Cambio el nuevo bundle generado en /tmp al directorio de produccion&quot;</span>
+<span class="token function">mv</span> /home/<span class="token variable">$usuario</span>/proyectos/<span class="token variable">$proyecto</span>/tmp/bundle /home/fideo/proyectos/reaction/bundle
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;reinicio passenger&quot;</span>
+passenger-config restart-app /home/fideo/proyectos/reaction/bundle
+
+</code></pre></div><p>Pueden ver mas funcionalidades sobre este e-Commerce en <a href="https://reactioncommerce.com/" target="_blank">Reaction Commerce</a> el sitio oficial.</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.67248da3.js" defer></script><script src="/assets/js/2.2b709ab5.js" defer></script><script src="/assets/js/14.670ade45.js" defer></script>
+  </body>
+</html>

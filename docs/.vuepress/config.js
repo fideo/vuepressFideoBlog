@@ -1,6 +1,6 @@
 module.exports = {
-    title: 'Fideox',
-    description: 'Sitio de testeo',
+    title: 'Federico Mazzei',
+    description: 'Desarrollador de sitios Web',
     themeConfig: {
         nav: [
             { text: "Home", link: "/"},
