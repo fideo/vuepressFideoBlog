@@ -1,11 +1,11 @@
 ---
-image: /example-image.jpg
-title: Post número 2
-description: Esta es una descripción de mi post número 2.
+image: /imagen-muestra.jpg
+title: Interviews número 2
+description: Esta es una descripción de mi Interviews número 2.
 date: 29-06-19 (dd-mm-yy)
 ---
 
-#Acá va el título de este post nº2
+# Acá va el título de este Interviews nº2
 
 por acá sigue la descripción
 
